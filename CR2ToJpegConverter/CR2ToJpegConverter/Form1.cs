@@ -22,6 +22,14 @@ namespace CR2ToJpegConverter
 
         }
 
+        private void fillListView(string[] files)
+        {
+            foreach (string file in files)
+            {
+                listViewPic.Items.Add(new ListViewItem(file));
+            }
+        }
+
         private void listViewPic_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
@@ -33,32 +41,32 @@ namespace CR2ToJpegConverter
             fillListView(files);
         }
 
-        private void btnConvert_Click(object sender, EventArgs e)
-        {
-            this.folderBrowserDialog.ShowDialog();
-
-            Converter.convert(this.listViewPic.Items, folderBrowserDialog.SelectedPath);
-        }
-
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             this.folderBrowserDialog.ShowDialog();
             this.listViewPic.Items.Clear();
             var files = Directory.GetFiles(@folderBrowserDialog.SelectedPath, "*.CR2");
             fillListView(files);
-        }
-
-        private void fillListView(string[] files)
-        {
-            foreach (string file in files)
-            {
-                listViewPic.Items.Add(new ListViewItem(file));
-            }
-        }
+        }   
 
         private void me_file_exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnConvert_Click(object sender, EventArgs e)
+        {
+            if (listViewPic.Items.Count.Equals(0))
+            {
+                return;
+            }
+            this.folderBrowserDialog.ShowDialog();
+            Converter.convert(this.listViewPic.Items, folderBrowserDialog.SelectedPath);
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.listViewPic.Items.Clear();
         }
         
 

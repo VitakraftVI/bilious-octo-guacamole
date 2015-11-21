@@ -37,7 +37,10 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.me_file_exit = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // listViewPic
@@ -46,8 +49,9 @@
             this.listViewPic.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnFiles});
             this.listViewPic.Location = new System.Drawing.Point(12, 25);
+            this.listViewPic.Margin = new System.Windows.Forms.Padding(3, 3, 12, 3);
             this.listViewPic.Name = "listViewPic";
-            this.listViewPic.Size = new System.Drawing.Size(439, 381);
+            this.listViewPic.Size = new System.Drawing.Size(330, 380);
             this.listViewPic.TabIndex = 0;
             this.listViewPic.UseCompatibleStateImageBehavior = false;
             this.listViewPic.View = System.Windows.Forms.View.Details;
@@ -55,11 +59,11 @@
             // columnFiles
             // 
             this.columnFiles.Text = "Files";
-            this.columnFiles.Width = 385;
+            this.columnFiles.Width = 330;
             // 
             // btnConvert
             // 
-            this.btnConvert.Location = new System.Drawing.Point(502, 383);
+            this.btnConvert.Location = new System.Drawing.Point(255, 3);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(75, 23);
             this.btnConvert.TabIndex = 1;
@@ -90,28 +94,49 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(112, 22);
             this.toolStripMenuItem2.Text = "Open...";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(109, 6);
             // 
             // me_file_exit
             // 
             this.me_file_exit.Name = "me_file_exit";
-            this.me_file_exit.Size = new System.Drawing.Size(152, 22);
+            this.me_file_exit.Size = new System.Drawing.Size(112, 22);
             this.me_file_exit.Text = "Exit";
             this.me_file_exit.Click += new System.EventHandler(this.me_file_exit_Click);
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(0, 3);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 3;
+            this.btnClear.Text = "Clear";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnClear);
+            this.panel1.Controls.Add(this.btnConvert);
+            this.panel1.Location = new System.Drawing.Point(12, 411);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(330, 30);
+            this.panel1.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(615, 507);
-            this.Controls.Add(this.btnConvert);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.listViewPic);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -119,6 +144,7 @@
             this.Text = "Form1";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,6 +161,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem me_file_exit;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Panel panel1;
 
 
 
