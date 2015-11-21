@@ -6,3 +6,11 @@ C:\Users\Jens\Documents\Visual Studio 2013\Projects\CR2ToJpegConverter\CR2ToJpeg
 C:\Users\Jens\Documents\Visual Studio 2013\Projects\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.csproj.GenerateResource.Cache
 C:\Users\Jens\Documents\Visual Studio 2013\Projects\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.exe
 C:\Users\Jens\Documents\Visual Studio 2013\Projects\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.pdb
+C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\bin\Release\CR2ToJpegConverter.exe.config
+C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.exe
+C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.pdb
+C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\bin\Release\CR2ToJpegConverter.exe
+C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\bin\Release\CR2ToJpegConverter.pdb
+C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.Form1.resources
+C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.Properties.Resources.resources
+C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.csproj.GenerateResource.Cache
