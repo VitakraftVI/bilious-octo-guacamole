@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.listViewPic = new System.Windows.Forms.ListView();
-            this.columnFiles = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnConvert = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -46,24 +45,17 @@
             // listViewPic
             // 
             this.listViewPic.AllowDrop = true;
-            this.listViewPic.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnFiles});
-            this.listViewPic.Location = new System.Drawing.Point(12, 25);
+            this.listViewPic.Location = new System.Drawing.Point(12, 33);
             this.listViewPic.Margin = new System.Windows.Forms.Padding(3, 3, 12, 3);
             this.listViewPic.Name = "listViewPic";
-            this.listViewPic.Size = new System.Drawing.Size(330, 380);
+            this.listViewPic.Size = new System.Drawing.Size(350, 380);
             this.listViewPic.TabIndex = 0;
             this.listViewPic.UseCompatibleStateImageBehavior = false;
             this.listViewPic.View = System.Windows.Forms.View.Details;
             // 
-            // columnFiles
-            // 
-            this.columnFiles.Text = "Files";
-            this.columnFiles.Width = 330;
-            // 
             // btnConvert
             // 
-            this.btnConvert.Location = new System.Drawing.Point(255, 3);
+            this.btnConvert.Location = new System.Drawing.Point(275, 3);
             this.btnConvert.Name = "btnConvert";
             this.btnConvert.Size = new System.Drawing.Size(75, 23);
             this.btnConvert.TabIndex = 1;
@@ -124,9 +116,9 @@
             // 
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.btnConvert);
-            this.panel1.Location = new System.Drawing.Point(12, 411);
+            this.panel1.Location = new System.Drawing.Point(12, 419);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(330, 30);
+            this.panel1.Size = new System.Drawing.Size(350, 30);
             this.panel1.TabIndex = 4;
             // 
             // Form1
@@ -154,7 +146,6 @@
         #endregion
 
         private System.Windows.Forms.ListView listViewPic;
-        private System.Windows.Forms.ColumnHeader columnFiles;
         private System.Windows.Forms.Button btnConvert;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.MenuStrip menuStrip1;

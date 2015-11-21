@@ -14,3 +14,4 @@ C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJp
 C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.Form1.resources
 C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.Properties.Resources.resources
 C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.csproj.GenerateResource.Cache
+C:\Users\Jens\Documents\GitHub\bilious-octo-guacamole\CR2ToJpegConverter\CR2ToJpegConverter\obj\Release\CR2ToJpegConverter.csprojResolveAssemblyReference.cache

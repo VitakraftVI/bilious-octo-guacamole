@@ -77,24 +77,37 @@ namespace CR2ToJpegConverter
 
         public static void convert(ListView.ListViewItemCollection list, String path)
         {
-            int i = 0;
-           // var files = Directory.GetFiles(@"C:\Users\Jens\Documents", "*.CR2");
-            foreach (ListViewItem lvi in list)
-            {
-                String file =lvi.Text;
-                var bmpDec = BitmapDecoder.Create(new Uri(file), BitmapCreateOptions.DelayCreation, BitmapCacheOption.None);
-                var bmpEnc = new JpegBitmapEncoder();
-                bmpEnc.QualityLevel = 100;
-                bmpEnc.Frames.Add(bmpDec.Frames[0]);
-                var oldfn = Path.GetFileName(file);
-                var newfn = Path.ChangeExtension(oldfn, "JPG");
-                using (var ms = File.Create(Path.Combine(@path, newfn), 10000000))
+            
+                int i = 0;
+                // var files = Directory.GetFiles(@"C:\Users\Jens\Documents", "*.CR2");
+                foreach (ListViewItem lvi in list)
                 {
-                    bmpEnc.Save(ms);
+                    try
+                    {
+                        String file = lvi.Text;
+                        var bmpDec = BitmapDecoder.Create(new Uri(file), BitmapCreateOptions.DelayCreation, BitmapCacheOption.None);
+                        var bmpEnc = new JpegBitmapEncoder();
+                        bmpEnc.QualityLevel = 100;
+                        bmpEnc.Frames.Add(bmpDec.Frames[0]);
+                        var oldfn = Path.GetFileName(file);
+                        var newfn = Path.ChangeExtension(oldfn, "JPG");
+                        using (var ms = File.Create(Path.Combine(@path, newfn), 10000000))
+                        {
+                            bmpEnc.Save(ms);
+                        }
+                        Console.WriteLine(newfn);
+                    } catch (System.NotSupportedException nse)
+                    {
+                        MessageBox.Show("Ungültiges Dateiformat", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
                 }
-                Console.WriteLine(newfn);
+
             }
+           
+           
         }
 
-    }
+    
 }
