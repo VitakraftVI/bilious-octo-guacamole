@@ -38,6 +38,7 @@
             this.me_file_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClear = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -45,6 +46,8 @@
             // listViewPic
             // 
             this.listViewPic.AllowDrop = true;
+            this.listViewPic.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1});
             this.listViewPic.Location = new System.Drawing.Point(12, 33);
             this.listViewPic.Margin = new System.Windows.Forms.Padding(3, 3, 12, 3);
             this.listViewPic.Name = "listViewPic";
@@ -121,6 +124,11 @@
             this.panel1.Size = new System.Drawing.Size(350, 30);
             this.panel1.TabIndex = 4;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Files";
+            this.columnHeader1.Width = 346;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -155,6 +163,7 @@
         private System.Windows.Forms.ToolStripMenuItem me_file_exit;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
 
 
 
