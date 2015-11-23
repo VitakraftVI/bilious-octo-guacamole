@@ -20,10 +20,7 @@ namespace CR2ToJpegConverter
         public Form1()
         {
             InitializeComponent();
-            this.listViewPic.DragEnter += new DragEventHandler(listViewPic_DragEnter);
-            this.listViewPic.DragDrop += new DragEventHandler(listViewPic_DragDrop);
-            fileList = new LinkedList<string>();
-            
+            fileList = new LinkedList<string>();     
         }
 
         private void fillListView(string[] files)
@@ -66,36 +63,56 @@ namespace CR2ToJpegConverter
             {
                 return;
             }
-            this.folderBrowserDialog.ShowDialog();
-            backgroundWorker1.RunWorkerAsync();
-        }
-
-        private void backgroundWorker1_doWork(object sender, EventArgs e)
-        {
-            int count = this.fileList.Count;
-            for (int i = 0; i < count; i++)
-            {
-                Converter.convertOne(fileList.ElementAt(i), folderBrowserDialog.SelectedPath);
-                int percentage = (i + 1) * 100 / count;
-                backgroundWorker1.ReportProgress(percentage);
-            }
-            MessageBox.Show(count + " Files converted.");
-        }
-
-        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            progressBar1.Value = e.ProgressPercentage;
             
-            if (e.ProgressPercentage.Equals(100))
+            if (!backgroundWorker1.IsBusy)
             {
-                listViewPic.Items.Clear();
-                fileList.Clear();
-            }
+                this.folderBrowserDialog.ShowDialog();
+                backgroundWorker1.RunWorkerAsync();
+            }      
         }
 
         private void btnClear_Click(object sender, EventArgs e)
         {
             this.listViewPic.Items.Clear();
+            this.progressBar1.Value = 0;
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker1.WorkerSupportsCancellation)
+            {
+                backgroundWorker1.CancelAsync();
+            }
+        }
+
+        private void backgroundWorker1_doWork(object sender, EventArgs e)
+        {
+            int count = this.fileList.Count;
+            int i;
+            for (i = 0; i < count; i++)
+            {
+                if (backgroundWorker1.CancellationPending)
+                {
+                    break;
+                }
+
+                Converter.convertOne(fileList.ElementAt(i), folderBrowserDialog.SelectedPath);
+                int percentage = (i + 1) * 100 / count;
+                backgroundWorker1.ReportProgress(percentage);
+            }
+            MessageBox.Show(i + " Files converted.");
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+        }
+
+        private void backgroundWorker1_Completed(object sender, EventArgs e)
+        {
+            listViewPic.Items.Clear();
+            fileList.Clear();
+            progressBar1.Value = 0;
         }
         
 
