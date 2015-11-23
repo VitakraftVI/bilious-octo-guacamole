@@ -58,8 +58,8 @@
             this.listViewPic.TabIndex = 0;
             this.listViewPic.UseCompatibleStateImageBehavior = false;
             this.listViewPic.View = System.Windows.Forms.View.Details;
-            this.listViewPic.DragEnter += new System.Windows.Forms.DragEventHandler(listViewPic_DragEnter);
-            this.listViewPic.DragDrop += new System.Windows.Forms.DragEventHandler(listViewPic_DragDrop);
+            this.listViewPic.DragDrop += new System.Windows.Forms.DragEventHandler(this.listViewPic_DragDrop);
+            this.listViewPic.DragEnter += new System.Windows.Forms.DragEventHandler(this.listViewPic_DragEnter);
             // 
             // columnHeader1
             // 
@@ -147,6 +147,7 @@
             // 
             // progressBar1
             // 
+            this.progressBar1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.progressBar1.Location = new System.Drawing.Point(12, 455);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(350, 23);
