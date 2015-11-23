@@ -8,18 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
-using System.Windows.Media.Imaging;
+using System.Threading;
+
 
 namespace CR2ToJpegConverter
 {
     public partial class Form1 : Form
     {
+        LinkedList<string> fileList;
+
         public Form1()
         {
             InitializeComponent();
             this.listViewPic.DragEnter += new DragEventHandler(listViewPic_DragEnter);
             this.listViewPic.DragDrop += new DragEventHandler(listViewPic_DragDrop);
-
+            fileList = new LinkedList<string>();
+            
         }
 
         private void fillListView(string[] files)
@@ -27,7 +31,9 @@ namespace CR2ToJpegConverter
             foreach (string file in files)
             {
                 listViewPic.Items.Add(new ListViewItem(file));
+                fileList.AddLast(file);
             }
+            
         }
 
         private void listViewPic_DragEnter(object sender, DragEventArgs e)
@@ -61,7 +67,30 @@ namespace CR2ToJpegConverter
                 return;
             }
             this.folderBrowserDialog.ShowDialog();
-            Converter.convert(this.listViewPic.Items, folderBrowserDialog.SelectedPath);
+            backgroundWorker1.RunWorkerAsync();
+        }
+
+        private void backgroundWorker1_doWork(object sender, EventArgs e)
+        {
+            int count = this.fileList.Count;
+            for (int i = 0; i < count; i++)
+            {
+                Converter.convertOne(fileList.ElementAt(i), folderBrowserDialog.SelectedPath);
+                int percentage = (i + 1) * 100 / count;
+                backgroundWorker1.ReportProgress(percentage);
+            }
+            MessageBox.Show(count + " Files converted.");
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar1.Value = e.ProgressPercentage;
+            
+            if (e.ProgressPercentage.Equals(100))
+            {
+                listViewPic.Items.Clear();
+                fileList.Clear();
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -72,42 +101,7 @@ namespace CR2ToJpegConverter
 
     }
 
-    public class Converter
-    {
-
-        public static void convert(ListView.ListViewItemCollection list, String path)
-        {
-            
-                int i = 0;
-                // var files = Directory.GetFiles(@"C:\Users\Jens\Documents", "*.CR2");
-                foreach (ListViewItem lvi in list)
-                {
-                    try
-                    {
-                        String file = lvi.Text;
-                        var bmpDec = BitmapDecoder.Create(new Uri(file), BitmapCreateOptions.DelayCreation, BitmapCacheOption.None);
-                        var bmpEnc = new JpegBitmapEncoder();
-                        bmpEnc.QualityLevel = 100;
-                        bmpEnc.Frames.Add(bmpDec.Frames[0]);
-                        var oldfn = Path.GetFileName(file);
-                        var newfn = Path.ChangeExtension(oldfn, "JPG");
-                        using (var ms = File.Create(Path.Combine(@path, newfn), 10000000))
-                        {
-                            bmpEnc.Save(ms);
-                        }
-                        Console.WriteLine(newfn);
-                    } catch (System.NotSupportedException nse)
-                    {
-                        MessageBox.Show("Ungültiges Dateiformat", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
-
-                }
-
-            }
-           
-           
-        }
+    
 
     
 }

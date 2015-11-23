@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.listViewPic = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnConvert = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -38,7 +39,8 @@
             this.me_file_exit = new System.Windows.Forms.ToolStripMenuItem();
             this.btnClear = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -55,6 +57,11 @@
             this.listViewPic.TabIndex = 0;
             this.listViewPic.UseCompatibleStateImageBehavior = false;
             this.listViewPic.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Files";
+            this.columnHeader1.Width = 346;
             // 
             // btnConvert
             // 
@@ -124,10 +131,18 @@
             this.panel1.Size = new System.Drawing.Size(350, 30);
             this.panel1.TabIndex = 4;
             // 
-            // columnHeader1
+            // progressBar1
             // 
-            this.columnHeader1.Text = "Files";
-            this.columnHeader1.Width = 346;
+            this.progressBar1.Location = new System.Drawing.Point(12, 455);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(350, 23);
+            this.progressBar1.TabIndex = 5;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_doWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
             // 
             // Form1
             // 
@@ -137,6 +152,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(615, 507);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.listViewPic);
             this.Controls.Add(this.menuStrip1);
@@ -164,6 +180,8 @@
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
 
 
 
